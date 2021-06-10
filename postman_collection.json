@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "3c9185b9-1dc1-4b33-8233-ea916a818b98",
-		"name": "Nest-template",
+		"name": "NestServer_Template",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
