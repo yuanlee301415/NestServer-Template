@@ -17,7 +17,7 @@ export default class User {
   }
 }
 
-export const users = [
+export const Users = [
   new User({
     username: 'root',
     password: createHash('sha256').update('123456').digest('hex'),

@@ -9,7 +9,7 @@
 			"name": "user",
 			"item": [
 				{
-					"name": "user",
+					"name": "/",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -26,7 +26,7 @@
 					"response": []
 				},
 				{
-					"name": "user:/id",
+					"name": ":id",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -46,10 +46,143 @@
 			]
 		},
 		{
+			"name": "post",
+			"item": [
+				{
+					"name": "/",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "PostMan_title_{{$guid}}",
+									"type": "text"
+								},
+								{
+									"key": "desc",
+									"value": "{{$randomLoremSentence}}",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "{{$randomLoremSentences}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/post",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"post"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": ":id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "PostMan_title_{{$guid}}",
+									"type": "text"
+								},
+								{
+									"key": "desc",
+									"value": "{{$randomLoremSentence}}",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "{{$randomLoremSentences}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/post/3b5d379e599883e88a7b50dcea6090f3b33c8b55df5a34d531468f6acb3b440a",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"post",
+								"3b5d379e599883e88a7b50dcea6090f3b33c8b55df5a34d531468f6acb3b440a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/post",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"post"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": ":id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/post/e162e30a5a4c1e44a7e04fca063c296001f26636ecf384701ae17849a4f83b11",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"post",
+								"e162e30a5a4c1e44a7e04fca063c296001f26636ecf384701ae17849a4f83b11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": ":id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/post/ddf3ff7c110ced585a4061e3a3c66f7051fe6847fd4b561f03bbad2b072a9cf0",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"post",
+								"ddf3ff7c110ced585a4061e3a3c66f7051fe6847fd4b561f03bbad2b072a9cf0"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "rights",
 			"item": [
 				{
-					"name": "/rights/register",
+					"name": "register",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -58,7 +191,7 @@
 							"urlencoded": [
 								{
 									"key": "username",
-									"value": "tom",
+									"value": "{{$randomLastName}}",
 									"type": "text"
 								},
 								{
@@ -82,7 +215,7 @@
 					"response": []
 				},
 				{
-					"name": "/rights/login",
+					"name": "login",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -117,7 +250,7 @@
 			]
 		},
 		{
-			"name": "root",
+			"name": "/",
 			"request": {
 				"method": "GET",
 				"header": [],

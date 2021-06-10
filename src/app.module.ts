@@ -5,18 +5,20 @@ import { LoggingInterceptor } from './common/interceptors/logger.interceptor';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { CommonModule } from './common/common.module';
 import { UserModule } from './user/user.module';
 import { RightsService } from './rights/rights.service';
 import { RightsController } from './rights/rights.controller';
 import { RightsModule } from './rights/rights.module';
-import { CommonModule } from './common/common.module';
+import { PostModule } from './post/post.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot({ envFilePath: ['.env.local', '.env'] }),
+    CommonModule,
     UserModule,
     RightsModule,
-    CommonModule,
+    PostModule,
   ],
   controllers: [AppController, RightsController],
   providers: [

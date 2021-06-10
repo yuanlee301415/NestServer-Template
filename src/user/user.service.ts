@@ -1,6 +1,6 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { CryptoUtil } from '../common/utils/crypto.util';
-import User, { users } from './User';
+import User, { Users } from './User';
 
 @Injectable()
 export class UserService {
@@ -11,16 +11,16 @@ export class UserService {
       username: user.username,
       password: this.cryptoUtil.encryptPassword(user.password),
     });
-    users.push(newUser);
+    Users.push(newUser);
     return newUser;
   }
 
   async findAll() {
-    return users;
+    return Users;
   }
 
   async findOneByUsername({ username, password }) {
-    const ret = users.find(
+    const ret = Users.find(
       (_) =>
         _.username === username &&
         _.password === this.cryptoUtil.encryptPassword(password),
@@ -29,7 +29,7 @@ export class UserService {
   }
 
   async findOneByUserId(id) {
-    const ret = users.find((_) => _._id === id);
+    const ret = Users.find((_) => _._id === id);
     return ret;
   }
 }
