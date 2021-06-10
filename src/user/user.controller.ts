@@ -1,6 +1,5 @@
 import { Controller, Get, Param } from '@nestjs/common';
 import { UserService } from './user.service';
-import { users } from './User';
 
 @Controller('user')
 export class UserController {
@@ -8,16 +7,17 @@ export class UserController {
 
   @Get()
   async getAll() {
+    const data = await this.userService.findAll();
     return {
       code: 0,
-      data: users,
-      total: users.length,
+      data: data,
+      total: data?.length,
     };
   }
 
   @Get(':id')
   async getUser(@Param('id') id) {
-    const user = users.find((_) => _._id === id);
+    const user = await this.userService.findOneByUserId(id);
     return {
       code: 0,
       data: user,

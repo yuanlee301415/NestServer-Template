@@ -5,7 +5,8 @@ import { CommonModule } from '../common/common.module';
 
 @Module({
   imports: [CommonModule],
-  providers: [UserService],
   controllers: [UserController],
+  providers: [UserService],
+  exports: [UserService],
 })
 export class UserModule {}
