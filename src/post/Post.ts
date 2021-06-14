@@ -1,4 +1,4 @@
-import { createHash } from 'crypto';
+const faker = require('faker/locale/zh_CN')
 
 let _id = 10000;
 
@@ -9,9 +9,7 @@ export default class Post {
   content: string;
   createdAt: Date;
   constructor(post) {
-    this._id = createHash('sha256')
-      .update(String(_id++))
-      .digest('hex');
+    this._id = String(_id++);
     this.title = post.title;
     this.desc = post.desc;
     this.content = post.content;
@@ -19,20 +17,14 @@ export default class Post {
   }
 }
 
-export const Posts = [
-  new Post({
-    title: `Post-title-${_id++}`,
-    desc: `Post-desc-${_id++}`,
-    content: `Post-content-${_id++}`,
-  }),
-  new Post({
-    title: `Post-title-${_id++}`,
-    desc: `Post-desc-${_id++}`,
-    content: `Post-content-${_id++}`,
-  }),
-  new Post({
-    title: `Post-title-${_id++}`,
-    desc: `Post-desc-${_id++}`,
-    content: `Post-content-${_id++}`,
-  }),
-];
+export const Posts = (function(total) {
+  const Posts = new Array()
+  for (let i = 0; i < total; i++) {
+    Posts.push(new Post({
+      title: faker.lorem.sentence(),
+      desc: faker.lorem.sentences(),
+      content: faker.lorem.paragraphs(20),
+    }))
+  }
+  return Posts;
+})(10)

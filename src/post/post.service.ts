@@ -13,8 +13,8 @@ export class PostService {
     return newPost;
   }
 
-  async findAll() {
-    return Posts;
+  async findAll({ page, size }) {
+    return [Posts.slice(size * (page - 1), size * page), Posts.length];
   }
 
   async findOneByPostId(id) {

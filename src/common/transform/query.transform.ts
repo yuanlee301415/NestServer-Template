@@ -18,7 +18,7 @@ export class TransformIntQuery implements PipeTransform {
   }
 
   transform(query: Query): Query {
-    // console.log('TransformIntQuery>query:\n', query);
+    console.log('TransformIntQuery>query:\n', query);
     const res = {
       page: 1,
       size: 20,

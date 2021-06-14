@@ -1,5 +1,6 @@
 import {
   BadRequestException,
+  Query,
   Body,
   Controller,
   Get,
@@ -9,6 +10,7 @@ import {
   Delete,
 } from '@nestjs/common';
 import { PostService } from './post.service';
+import {TransformIntQuery} from "../common/transform/query.transform";
 
 @Controller('post')
 export class PostController {
@@ -30,12 +32,12 @@ export class PostController {
   }
 
   @Get()
-  async getAll() {
-    const data = await this.postService.findAll();
+  async getAll(@Query(new TransformIntQuery()) query) {
+    const [data, total] = await this.postService.findAll(query);
     return {
       code: 0,
-      data: data,
-      total: data?.length,
+      data,
+      total
     };
   }
 
