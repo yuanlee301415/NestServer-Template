@@ -16,7 +16,7 @@ import {TransformIntQuery} from "../common/transform/query.transform";
 export class PostController {
   constructor(private readonly postService: PostService) {}
 
-  @Post('')
+  @Post()
   async create(@Body() data) {
     if (!data.title || !data.content) {
       throw new BadRequestException();

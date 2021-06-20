@@ -18,13 +18,13 @@ export default class Post {
 }
 
 export const Posts = (function(total) {
-  const Posts = new Array()
+  const data = new Array(total)
   for (let i = 0; i < total; i++) {
-    Posts.push(new Post({
+    data[i] = new Post({
       title: faker.lorem.sentence(),
       desc: faker.lorem.sentences(),
       content: faker.lorem.paragraphs(20),
-    }))
+    })
   }
-  return Posts;
-})(10)
+  return data;
+})(60)
