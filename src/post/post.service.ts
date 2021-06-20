@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import Post, { Posts } from './Post';
+import Post, { Posts, patchId } from './Post';
 
 @Injectable()
 export class PostService {
@@ -14,6 +14,7 @@ export class PostService {
   }
 
   async findAll({ page, size }) {
+    Posts.sort((a, b) => a.__INDEX__ < b.__INDEX__ ? 1 : -1)
     return [Posts.slice(size * (page - 1), size * page), Posts.length];
   }
 
@@ -27,7 +28,8 @@ export class PostService {
     if (!post) return null;
 
     const { title, desc, content } = data;
-    Object.assign(post, { title, desc, content, createdAt: new Date() });
+    Object.assign(post, { title, desc, content, updatedAt: new Date(), __INDEX__: patchId() });
+
     return id;
   }
 

@@ -111,13 +111,13 @@
 							]
 						},
 						"url": {
-							"raw": "{{url}}/post/3b5d379e599883e88a7b50dcea6090f3b33c8b55df5a34d531468f6acb3b440a",
+							"raw": "{{url}}/post/1001",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"post",
-								"3b5d379e599883e88a7b50dcea6090f3b33c8b55df5a34d531468f6acb3b440a"
+								"1001"
 							]
 						}
 					},
@@ -129,12 +129,22 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/post",
+							"raw": "{{url}}/post?page=1&size=10",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"post"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "size",
+									"value": "10"
+								}
 							]
 						}
 					},
@@ -146,13 +156,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/post/e162e30a5a4c1e44a7e04fca063c296001f26636ecf384701ae17849a4f83b11",
+							"raw": "{{url}}/post/10050",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"post",
-								"e162e30a5a4c1e44a7e04fca063c296001f26636ecf384701ae17849a4f83b11"
+								"10050"
 							]
 						}
 					},

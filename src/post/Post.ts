@@ -1,21 +1,30 @@
 const faker = require('faker/locale/zh_CN')
 
-let _id = 10000;
+let _id = 1000;
+
+export function patchId() {
+  return ++_id;
+}
 
 export default class Post {
+  __INDEX__: number;
   _id: string;
   title: string;
   desc: string;
   content: string;
   createdAt: Date;
+  updatedAt: Date;
   constructor(post) {
-    this._id = String(_id++);
+    this.__INDEX__ = patchId()
+    this._id = String(this.__INDEX__);
     this.title = post.title;
     this.desc = post.desc;
     this.content = post.content;
     this.createdAt = post.createdAt || new Date();
+    this.updatedAt = post.updatedAt || null;
   }
 }
+
 
 export const Posts = (function(total) {
   const data = new Array(total)
