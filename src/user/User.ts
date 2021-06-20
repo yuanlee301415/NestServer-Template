@@ -1,19 +1,25 @@
 import { createHash } from 'crypto';
 
-let _id = 10000;
+let _id = 1000;
+
+export function patchId() {
+  return ++_id;
+}
 
 export default class User {
+  __INDEX__: number;
   _id: string;
   username: string;
   password: string;
   createdAt: Date;
+  updatedAt: Date;
   constructor(user) {
-    this._id = createHash('sha256')
-      .update(String(_id++))
-      .digest('hex');
+    this.__INDEX__ = patchId()
+    this._id = String(this.__INDEX__);
     this.username = user.username;
     this.password = user.password;
-    this.createdAt = new Date();
+    this.createdAt = user.createdAt || new Date();
+    this.updatedAt = null;
   }
 }
 

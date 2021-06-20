@@ -15,7 +15,7 @@ export class RightsService {
   }
 
   async login(data) {
-    const user = await this.userService.findOneByUsername(data);
+    const user = await this.userService.validateUser(data);
     if (!user) throw new UnauthorizedException();
 
     return this.cryptoUtil.encryptPassword(String(Date.now() * Math.random()));

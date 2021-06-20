@@ -15,11 +15,12 @@ export class UserService {
     return newUser;
   }
 
-  async findAll() {
-    return Users;
+  async findAll({ page, size }) {
+    Users.sort((a, b) => a.__INDEX__ < b.__INDEX__ ? 1 : -1)
+    return [Users.slice(size * (page - 1), size * page), Users.length];
   }
 
-  async findOneByUsername({ username, password }) {
+  async validateUser({ username, password }) {
     const ret = Users.find(
       (_) =>
         _.username === username &&

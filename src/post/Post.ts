@@ -21,7 +21,7 @@ export default class Post {
     this.desc = post.desc;
     this.content = post.content;
     this.createdAt = post.createdAt || new Date();
-    this.updatedAt = post.updatedAt || null;
+    this.updatedAt = null;
   }
 }
 
