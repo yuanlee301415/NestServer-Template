@@ -14,12 +14,22 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/user",
+							"raw": "{{url}}/user?page=1&size=20",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"user"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "size",
+									"value": "20"
+								}
 							]
 						}
 					},
@@ -31,13 +41,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/user/39e5b4830d4d9c14db7368a95b65d5463ea3d09520373723430c03a5a453b5df",
+							"raw": "{{url}}/user/1001",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"user",
-								"39e5b4830d4d9c14db7368a95b65d5463ea3d09520373723430c03a5a453b5df"
+								"1001"
 							]
 						}
 					},
@@ -129,7 +139,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/post?page=1&size=10",
+							"raw": "{{url}}/post?page=3&size=20",
 							"host": [
 								"{{url}}"
 							],
@@ -139,11 +149,11 @@
 							"query": [
 								{
 									"key": "page",
-									"value": "1"
+									"value": "3"
 								},
 								{
 									"key": "size",
-									"value": "10"
+									"value": "20"
 								}
 							]
 						}
@@ -156,13 +166,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/post/10050",
+							"raw": "{{url}}/post/1001",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"post",
-								"10050"
+								"1001"
 							]
 						}
 					},
@@ -174,13 +184,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/post/ddf3ff7c110ced585a4061e3a3c66f7051fe6847fd4b561f03bbad2b072a9cf0",
+							"raw": "{{url}}/post/1000",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"post",
-								"ddf3ff7c110ced585a4061e3a3c66f7051fe6847fd4b561f03bbad2b072a9cf0"
+								"1000"
 							]
 						}
 					},
