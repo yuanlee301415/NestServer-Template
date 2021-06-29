@@ -20,7 +20,6 @@ export class PostController {
   async create(@Body() data) {
     if (!data.title || !data.content) {
       throw new BadRequestException();
-      return;
     }
 
     const ret = await this.postService.create(data);
@@ -54,7 +53,6 @@ export class PostController {
   async putPost(@Param('id') id, @Body() data) {
     if (!id) {
       throw new BadRequestException();
-      return;
     }
 
     const ret = await this.postService.update(id, data);
@@ -68,7 +66,6 @@ export class PostController {
   async removePost(@Param('id') id) {
     if (!id) {
       throw new BadRequestException();
-      return;
     }
 
     const ret = await this.postService.remove(id);

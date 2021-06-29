@@ -30,4 +30,5 @@ import { PostModule } from './post/post.module';
     RightsService,
   ],
 })
+
 export class AppModule {}

@@ -9,4 +9,5 @@ import { CommonModule } from '../common/common.module';
   providers: [UserService],
   exports: [UserService],
 })
+
 export class UserModule {}

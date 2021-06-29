@@ -9,7 +9,6 @@ export class RightsController {
   async register(@Body() data) {
     if (!data.username || !data.password) {
       throw new BadRequestException();
-      return;
     }
 
     const ret = await this.rightsService.register(data);
@@ -23,7 +22,6 @@ export class RightsController {
   async login(@Body() data) {
     if (!data.username || !data.password) {
       throw new BadRequestException();
-      return;
     }
 
     const ret = await this.rightsService.login(data);

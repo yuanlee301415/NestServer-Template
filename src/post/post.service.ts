@@ -29,7 +29,6 @@ export class PostService {
 
     const { title, desc, content } = data;
     Object.assign(post, { title, desc, content, updatedAt: new Date(), __INDEX__: patchId() });
-
     return id;
   }
 
