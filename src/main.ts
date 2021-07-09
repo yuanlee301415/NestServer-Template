@@ -1,5 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const pkg = require('../package.json');
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 
@@ -10,7 +8,7 @@ async function bootstrap() {
   console.log('process.env.PORT:', process.env.PORT);
   await app.listen(process.env.PORT);
   console.log(
-    `[${pkg.name}] Nest-server is running on: ${await app.getUrl()}`,
+    `[${process.env.NAME}] is running on: ${await app.getUrl()}`,
     new Date(),
   );
 }
