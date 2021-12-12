@@ -11,6 +11,7 @@ import { RightsService } from './rights/rights.service';
 import { RightsController } from './rights/rights.controller';
 import { RightsModule } from './rights/rights.module';
 import { PostModule } from './post/post.module';
+import { DictModule } from './dict/dict.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { PostModule } from './post/post.module';
     UserModule,
     RightsModule,
     PostModule,
+    DictModule,
   ],
   controllers: [AppController, RightsController],
   providers: [
@@ -30,5 +32,4 @@ import { PostModule } from './post/post.module';
     RightsService,
   ],
 })
-
 export class AppModule {}
