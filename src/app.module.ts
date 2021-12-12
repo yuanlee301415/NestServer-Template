@@ -12,6 +12,7 @@ import { RightsController } from './rights/rights.controller';
 import { RightsModule } from './rights/rights.module';
 import { PostModule } from './post/post.module';
 import { DictModule } from './dict/dict.module';
+import { CIModule } from "./ci/ci.module";
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import { DictModule } from './dict/dict.module';
     RightsModule,
     PostModule,
     DictModule,
+    CIModule
   ],
   controllers: [AppController, RightsController],
   providers: [
