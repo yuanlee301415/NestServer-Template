@@ -13,7 +13,7 @@ export class LoggingInterceptor implements NestInterceptor {
     const now = new Date();
     const [req] = context.getArgs();
     console.log(
-      `\n\n---------------------------------------${req.method}::${req.url}---------------------------------------`,
+      `\n---------------------------------------${req.method}::${req.url}---------------------------------------`,
     );
     console.log(new Date().toLocaleString());
     console.log('req.query:\n', req.query);
@@ -24,7 +24,7 @@ export class LoggingInterceptor implements NestInterceptor {
         console.log(
           `---------------------------------------Done: ${
             Date.now() - now.getTime()
-          }ms---------------------------------------\n\n\n\n`,
+          }ms---------------------------------------\n`,
         );
       }),
     );
