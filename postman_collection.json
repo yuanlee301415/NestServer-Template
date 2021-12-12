@@ -199,6 +199,326 @@
 			]
 		},
 		{
+			"name": "dict",
+			"item": [
+				{
+					"name": "dict",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('newDictId', function() {\r",
+									"    const data = pm.response.json().data\r",
+									"    pm.collectionVariables.set('newDictId', data.id)\r",
+									"    console.log('get>newDictId:', pm.collectionVariables.get('newDictId'))\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"postman-dict-name-{{$guid}}\",\r\n    \"displayName\": \"postman-dict-displayName-{{$guid}}\",\r\n    \"description\": \"{{$randomLoremSentences}}\",\r\n    \"items\": [\r\n        { \"key-{{$guid}}\": \"value-{{$guid}}\"}\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/dict",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dict"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": ":id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"postman-dict-name-update@{{nowISOStr}}\",\r\n    \"displayName\": \"postman-dict-displayName-{{$guid}}\",\r\n    \"description\": \"{{$randomLoremSentences}}\",\r\n    \"items\": [\r\n        { \"key-{{$guid}}\": \"value-{{$guid}}\"}\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/dict/{{newDictId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dict",
+								"{{newDictId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/dict?page=1&size=5",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dict"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "size",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": ":id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/dict/{{newDictId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dict",
+								"{{newDictId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": ":id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ids\": [\r\n        \"3f1b0d43-6662-4882-aa3f-5ac1903a239c\",\r\n        \"590ffe08-3842-4bde-8506-0b8a67ae4720\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/dict",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dict"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ci",
+			"item": [
+				{
+					"name": "ci",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('newCIId', function() {\r",
+									"    const data = pm.response.json().data\r",
+									"    pm.collectionVariables.set('newCIId', data.id)\r",
+									"    console.log('get>newCIId:', pm.collectionVariables.get('newCIId'))\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "PostMan-ci-name_{{$guid}}",
+									"type": "text"
+								},
+								{
+									"key": "displayName",
+									"value": "PostMan-displayName-{{$guid}}",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "{{$randomLoremSentences}}",
+									"type": "text"
+								},
+								{
+									"key": "bizType",
+									"value": "monitor",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/ci",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ci"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": ":id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "PostMan-update-ciname-update@{{nowISOStr}}",
+									"type": "text"
+								},
+								{
+									"key": "displayName",
+									"value": "PostMan-displayName-{{$guid}}",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "{{$randomLoremSentences}}",
+									"type": "text"
+								},
+								{
+									"key": "biyType",
+									"value": "asset",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/ci/{{newCIId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ci",
+								"{{newCIId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/ci?page=1&size=5",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ci"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "size",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": ":id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/ci/{{newCIId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ci",
+								"{{newCIId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": ":id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ids\": [\r\n        \"e207cf77-52d0-4cea-9a48-316a1c540b87\",\r\n        \"590ffe08-3842-4bde-8506-0b8a67ae4720\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/ci",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ci"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "rights",
 			"item": [
 				{
@@ -293,7 +613,8 @@
 			"script": {
 				"type": "text/javascript",
 				"exec": [
-					""
+					"pm.globals.set(\"now\", Date.now());",
+					"pm.globals.set(\"nowISOStr\", new Date().toISOString());"
 				]
 			}
 		},
@@ -311,6 +632,14 @@
 		{
 			"key": "url",
 			"value": "http://localhost:10300/api/v1"
+		},
+		{
+			"key": "newDictId",
+			"value": ""
+		},
+		{
+			"key": "newCIId",
+			"value": ""
 		}
 	]
 }
