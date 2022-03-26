@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "3c9185b9-1dc1-4b33-8233-ea916a818b98",
+		"_postman_id": "ecf17c6c-fd15-46a7-b73e-01882a73f8eb",
 		"name": "NestServer_Template",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -511,6 +511,29 @@
 							],
 							"path": [
 								"ci"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "cit",
+			"item": [
+				{
+					"name": "tree",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/cit/tree",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"cit",
+								"tree"
 							]
 						}
 					},
