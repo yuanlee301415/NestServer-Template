@@ -14,7 +14,7 @@ export default class User {
   createdAt: Date;
   updatedAt: Date;
   constructor(user) {
-    this.__INDEX__ = patchId()
+    this.__INDEX__ = patchId();
     this._id = String(this.__INDEX__);
     this.username = user.username;
     this.password = user.password;

@@ -16,7 +16,7 @@ export class UserService {
   }
 
   async findAll({ page, size }) {
-    Users.sort((a, b) => a.__INDEX__ < b.__INDEX__ ? 1 : -1)
+    Users.sort((a, b) => (a.__INDEX__ < b.__INDEX__ ? 1 : -1));
     return [Users.slice(size * (page - 1), size * page), Users.length];
   }
 

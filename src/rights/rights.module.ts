@@ -10,5 +10,4 @@ import { CommonModule } from '../common/common.module';
   providers: [RightsService],
   exports: [RightsService],
 })
-
 export class RightsModule {}

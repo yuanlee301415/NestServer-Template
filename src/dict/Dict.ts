@@ -10,6 +10,6 @@ export default class Dict extends DB {
     this.name = dict.name;
     this.displayName = dict.displayName;
     this.description = dict.description;
-    this.items = dict.items
+    this.items = dict.items;
   }
 }

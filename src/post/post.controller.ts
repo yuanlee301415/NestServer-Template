@@ -10,7 +10,7 @@ import {
   Delete,
 } from '@nestjs/common';
 import { PostService } from './post.service';
-import {TransformIntQuery} from "../common/transform/query.transform";
+import { TransformIntQuery } from '../common/transform/query.transform';
 
 @Controller('post')
 export class PostController {
@@ -36,7 +36,7 @@ export class PostController {
     return {
       code: 0,
       data,
-      total
+      total,
     };
   }
 
